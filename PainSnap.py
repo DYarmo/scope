@@ -13,7 +13,7 @@ import cv2
 import pyqtgraph as pg
 from matplotlib import pyplot as plt
 import numpy as np
-import SnapDragonflyTools as tools
+import PainSnap_tools as tools
 import time
 import os
 import serial
@@ -54,6 +54,7 @@ class AcqGUI(QMainWindow):
 
         self.start_action = QAction('Acquire', self)
         self.stop_action = QAction('End acquisition', self)
+        self.stop_action.setEnabled(False)
         self.find_action = QAction('Find inputs', self)
         self.add_ip_action = QAction('Add ip camera...', self)
         self.remove_ip_action = QAction('Remove ip camera', self)
@@ -253,11 +254,15 @@ class AcqGUI(QMainWindow):
         for cam in self.cam_objects:
             self.cam_objects[cam].start(
                 exp_dir=self.trialFolder, start_time=start_time)
+        self.stop_action.setEnabled(True)
+        self.start_action.setEnabled(False)
 
     def stop_acq(self):
         self.acq_active = False
         for cam in self.cam_objects:
             self.cam_objects[cam].stop()
+        self.stop_action.setEnabled(False)
+        self.start_action.setEnabled(True)
 
     def init_display(self):
         self.GL.clear()
