@@ -16,3 +16,5 @@ wheels/
 
 # Large binary files
 SDK/Native_Toolkit/bin/
+SDK/
+*.so
