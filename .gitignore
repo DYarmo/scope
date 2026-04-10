@@ -13,3 +13,6 @@ wheels/
 # Unused SDK files
 *.h
 *.zip
+
+# Large binary files
+SDK/Native_Toolkit/bin/
