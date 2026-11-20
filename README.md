@@ -1,6 +1,6 @@
 # Scope
 
-A Python-based camera control application for Thorlabs cameras, featuring GUI for image acquisition and analysis.
+A Python-based camera control application including interface for Thorlabs and FLIR cameras, featuring GUI for image acquisition and analysis.
 
 ## Installation
 
